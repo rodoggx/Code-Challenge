@@ -17,18 +17,18 @@ public class RecursiveChallenge {
         //sort array in reverse order
         Arrays.sort(arr, Collections.reverseOrder());
         //store array from myString method as a string
-        String sb = myString(arr, " ");
+        String sb = myString(arr);
         //print string
         System.out.println(sb);
 
     }
-    private static String myString(String[] myArray, String delimiter) {
+    private static String myString(String[] myArray) {
         //new stringbuilder instance
         StringBuilder sb = new StringBuilder();
         //for each item in the array, append string with a delimiter and item
         for (int i = 0; i < myArray.length; i++) {
             if (i > 0) {
-                sb.append(delimiter);
+                sb.append(" ");
             }
             String item = myArray[i];
             sb.append(item);
