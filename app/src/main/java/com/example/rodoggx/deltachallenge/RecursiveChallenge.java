@@ -1,34 +1,38 @@
 package com.example.rodoggx.deltachallenge;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Created by RodoggX on 2/2/2018.
  */
 
 public class RecursiveChallenge {
 
-
     public static void main(String[] args) {
 
-        String rawStr = "Apple launched Iphone X yesterday";
+        String str = "Apple launched Iphone X yesterday";
+        //split string by space and store as array
+        String[] arr = str.split(" ");
+        //sort array in reverse order
+        Arrays.sort(arr, Collections.reverseOrder());
+        //store array from myString method as a string
+        String sb = myString(arr, " ");
+        //print string
+        System.out.println(sb);
 
-        reverseString(rawStr);
     }
-
-    //create a recurcive funtion to reverse a string
-
-
-    public static String reverseString(String str) {
-
-        StringBuilder stringBuilder;
-
-        stringBuilder = new StringBuilder();
-//check if the string is of min length
-        if (str == null || str.length() <= 1) {
-//            stringBuilder.append(str);
-            return str;
-        } else {
-            return reverseString(str.substring(1) + str.charAt(0));//recursive call
+    private static String myString(String[] myArray, String delimiter) {
+        //new stringbuilder instance
+        StringBuilder sb = new StringBuilder();
+        //for each item in the array, append string with a delimiter and item
+        for (int i = 0; i < myArray.length; i++) {
+            if (i > 0) {
+                sb.append(delimiter);
+            }
+            String item = myArray[i];
+            sb.append(item);
         }
-
+        return sb.toString();
     }
 }
